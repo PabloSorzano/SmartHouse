@@ -1,0 +1,27 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ipn.com.mx.smarthome.controles.ControlTelevision"
+    android:gravity="center"
+    android:background="@color/colorWhite">
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:height="200dp"
+        android:paddingTop="100dp"
+        android:switchMinWidth="100dp"
+        android:text="Estado" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="top|center"
+        android:text="@string/txtTelevision"
+        android:textColor="@color/colorPrimary"
+        android:textSize="35dp" />
+
+</FrameLayout>

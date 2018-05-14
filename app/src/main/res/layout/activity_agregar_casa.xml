@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="ipn.com.mx.smarthome.agregar.AgregarCasa"
+    android:orientation="vertical"
+    android:weightSum="7">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="Nombre"
+        android:textSize="20dp"
+        android:layout_weight="1"/>
+
+    <EditText
+        android:id="@+id/txtNombreCasa"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:inputType="textPersonName"
+        android:hint="Ingrese Nombre"
+        android:textSize="20dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="Descripción"
+        android:textSize="20dp"
+        android:layout_weight="1"/>
+
+    <EditText
+        android:id="@+id/txtDescCasa"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:inputType="textPersonName"
+        android:hint="Ingrese Descripción"
+        android:textSize="20dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/txtTipoCasa"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="Tipo de casa"
+        android:textSize="20dp"
+        android:layout_weight="1"/>
+
+
+    <Spinner
+        android:id="@+id/spinnerCasa"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:entries="@array/tipos_casa"
+        android:prompt="@string/casa_prompt"
+        android:layout_weight="1"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/btnAgregarCasa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtAdd"
+        android:layout_gravity="center"
+        android:background="@color/colorBlue"
+        android:textColor="@color/colorWhite"/>
+
+</LinearLayout>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ipn.com.mx.smarthome.LoginActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layoutLogo"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            tools:ignore="InvalidId">
+
+            <ImageView
+                android:id="@+id/imageLogo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/smart_logo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutTitulo"
+            android:orientation="vertical"
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            tools:ignore="InvalidId"
+            android:gravity="center"
+            android:paddingTop="30dp">
+
+            <TextView
+                android:id="@+id/txtTitulo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:nestedScrollingEnabled="false"
+                android:text="@string/txtTitulo1"
+                android:textColor="@color/colorBlue"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtTitulo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:nestedScrollingEnabled="false"
+                android:text="@string/txtTitulo2"
+                android:textColor="@color/colorBlue"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/txtUsuarioLogin"
+                android:layout_width="220dp"
+                android:layout_height="32dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="1dp"
+                android:background="@color/colorGray"
+                android:fontFamily="helvetica"
+                android:hint="@string/hintUsuario"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:text="Usuario"
+                android:textSize="16dp" />
+
+            <EditText
+                android:id="@+id/txtContraseniaLogin"
+                android:layout_width="220dp"
+                android:layout_height="32dp"
+                android:layout_below="@+id/txtUsuarioLogin"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:background="@color/colorGray"
+                android:fontFamily="helvetica"
+                android:hint="@string/hintContrasenia"
+                android:inputType="textPassword"
+                android:paddingStart="10dp"
+                android:textSize="16dp"
+                android:text=""/>
+
+
+            <Button
+                android:id="@+id/btnIniciar"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_below="@+id/txtShow"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorBlue"
+                android:text="@string/btnIniciar"
+                android:textColor="#FFFFFF"
+                android:textSize="12dp" />
+
+
+            <CheckBox
+                android:id="@+id/chkShowContrasenia"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/txtContraseniaLogin"
+                android:layout_below="@+id/txtContraseniaLogin" />
+
+            <TextView
+                android:id="@+id/txtShow"
+                style="?android:attr/actionButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_alignStart="@id/txtContraseniaLogin"
+                android:layout_below="@+id/txtContraseniaLogin"
+                android:paddingStart="30dp"
+                android:nestedScrollingEnabled="false"
+                android:text="@string/txtShow"
+                android:textColor="@color/colorLink"
+                android:textSize="12dp" />
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

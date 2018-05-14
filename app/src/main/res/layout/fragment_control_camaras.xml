@@ -1,0 +1,17 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ipn.com.mx.smarthome.controles.ControlTelevision"
+    android:gravity="center"
+    android:background="@color/colorBlue">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/txtCamaras"
+        android:textSize="35dp"
+        android:textColor="@color/colorWhite"
+        android:gravity="center"/>
+
+</FrameLayout>

@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">SMARTHOUSE</string>
+    <!--Login activity-->
+    <string name="txtTitulo1"> Smart House</string>
+    <string name="txtTitulo2">C.E.C.y T. 9 -- I.P.N. </string>
+    <string name="hintUsuario"> Usuario (*) </string>
+    <string name="hintContrasenia"> Contraseña (*) </string>
+    <string name="btnIniciar"> Iniciar </string>
+    <string name="btnRecuperar"> ¿Olvidaste tu contraseña?</string>
+    <string name="txtShow"> Mostrar contraseña </string>
+    <string name="msgUsuario"> Ingrese el usuario </string>
+    <string name="msgContrasenia"> Ingrese su contraseña </string>
+
+
+    <!-- MENU -->
+    <string name="txtBienvenido">Bienvenido</string>
+    <string name="txtCasas">Casas</string>
+    <string name="txtLuces">Control de Luces</string>
+    <string name="txtCalefaccion">Calefacción</string>
+    <string name="txtTelevision">Control de Televisión</string>
+    <string name="txtCamaras">Cámaras</string>
+    <string name="txtConfiguracion">Configuración</string>
+    <string name="txtSalir">Salir</string>
+
+    <!-- Principal activity-->
+    <string name="txtAbrir">Abrir</string>
+    <string name="txtCerrar">Cerrar</string>
+
+
+    <!-- Agregar casa -->
+    <string name="txtAdd">Agregar</string>
+    <string name="msgNombre"> Ingrese el nombre </string>
+    <string name="msgDescripcion"> Ingrese la descripción </string>
+
+
+    <!--Spinner Casa-->
+    <string name="casa_prompt">Selecciona un tipo...</string>
+    <string-array name="tipos_casa">
+        <item>Casa</item>
+        <item>Casa grande</item>
+        <item>Departamento</item>
+    </string-array>
+
+    <!-- Agregar cuarto -->
+    <string name="txtAdd1">Agregar</string>
+    <string name="txtAdd2">Agregar</string>
+    <string name="msgNombre1"> Ingrese el nombre </string>
+    <string name="msgDescripcion1"> Ingrese la descripción </string>
+
+
+    <!--Spinner Casa-->
+    <string name="casa_prompt1">Selecciona un tipo...</string>
+    <string-array name="tipos_cuarto">
+        <item>Dormitorio</item>
+        <item>Sala</item>
+        <item>Cocina</item>
+        <item>Garage</item>
+        <item>Baño</item>
+    </string-array>
+
+    <!--Spinner tiposDispositivos-->
+    <string name="casa_prompt2">Selecciona un tipo...</string>
+    <string-array name="tipos_dispositivos">
+        <item>Luces</item>
+        <item>Television</item>
+        <item>Calefaccion</item>
+    </string-array>
+
+    <!-- Agregar Dispositivo -->
+
+    <string name="txtAdd3">Agregar</string>
+    <string name="msgNombre2"> Ingrese el nombre </string>
+    <string name="msgDescripcion2"> Ingrese la descripción </string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
