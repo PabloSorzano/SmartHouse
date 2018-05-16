@@ -1,5 +1,6 @@
 package ipn.com.mx.smarthome.agregar;
 
+import android.annotation.SuppressLint;
 import android.arch.persistence.room.Room;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -76,11 +77,12 @@ public class AgregarCasa extends AppCompatActivity implements Validator.Validati
             if (view instanceof TextView)
                 ((TextView) view).setError(message);
             else
-                poUtilidades.showToastCentrado(message);
+                poUtilidades.showToastCentrado(getApplicationContext(), message);
         }
     }
 
 
+    @SuppressLint("StaticFieldLeak")
     private void agregarCasaAsync()
     {
         new AsyncTask<Void, Void, Integer>() {

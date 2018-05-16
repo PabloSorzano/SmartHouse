@@ -10,11 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".LoginActivity">
-            <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Principal" />
         <activity android:name=".controles.ControlCasa" />
@@ -22,6 +17,11 @@
         <activity android:name=".agregar.AgregarCuarto" />
         <activity android:name=".agregar.AgregarDispositivo" />
         <activity android:name=".agregar.AgregarUsuario" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 

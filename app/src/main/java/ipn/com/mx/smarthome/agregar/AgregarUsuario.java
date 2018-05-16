@@ -45,6 +45,7 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
     private Validator poValidator;
     private Utilidades poUtilidades;
     private validacionesJT poValidaciones;
+    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +58,7 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
         poUtilidades = new Utilidades(this);
 
         poValidaciones = new validacionesJT();
-
+        usuario = new Usuario();
         nombre = (EditText)findViewById(R.id.txtNombre);
         apellidoP = (EditText)findViewById(R.id.txtApellidoP);
         apellidoM = (EditText)findViewById(R.id.txtApellidoM);
@@ -77,7 +78,7 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
 
     @Override
     public void onValidationSucceeded() {
-        agregarUsuario();
+        agregarUsuarioZync();
     }
 
     @Override
@@ -88,15 +89,29 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
             if (view instanceof TextView)
                 ((TextView) view).setError(message);
             else
-                poUtilidades.showToastCentrado(message);
+                poUtilidades.showToastCentrado(getApplicationContext(), message);
         }
     }
 
+    private void agregarUsuarioZync()
+    {
+        new AsyncTask<Void, Void, Integer>() {
+            @Override
+            protected Integer doInBackground(Void... params) {
+                agregarUsuario();
+                return 1;
+            }
 
+            @Override
+            protected void onPostExecute(Integer agentsCount) {
+                finish();
+            }
+        }.execute();
+    }
 
     private void agregarUsuario()
     {
-        Usuario usuario = new Usuario();
+
         xnama = nombre.getText().toString().trim();
         xpata = apellidoP.getText().toString().trim();
         xmata = apellidoM.getText().toString().trim();
@@ -112,22 +127,22 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
         pass = poValidaciones.sinEspecial(xpass);
 
         if (nama == false) {
-            poUtilidades.showToastCentrado("Nombre incorrecto");
+            poUtilidades.showToastCentrado(getApplicationContext(),"Nombre incorrecto");
             nombre.setText("");
         } else if (pata == false) {
-            poUtilidades.showToastCentrado("Apellido Paterno incorrecto");
+            poUtilidades.showToastCentrado(getApplicationContext(),"Apellido Paterno incorrecto");
             apellidoP.setText("");
         } else if (mata == false) {
-            poUtilidades.showToastCentrado("Apellido Materno incorrecto");
+            poUtilidades.showToastCentrado(getApplicationContext(),"Apellido Materno incorrecto");
             apellidoM.setText("");
         } else if (xcelu.length() != 10 || celu == false) {
-            poUtilidades.showToastCentrado("Celular incorrecto");
+            poUtilidades.showToastCentrado(getApplicationContext(),"Celular incorrecto");
             cel.setText("");
         } else if (mai == false) {
-            poUtilidades.showToastCentrado("Correo incorrecto");
+            poUtilidades.showToastCentrado(getApplicationContext(),"Correo incorrecto");
             corr.setText("");
         } else if (pass == false) {
-            poUtilidades.showToastCentrado("Contraseña incorrecta");
+            poUtilidades.showToastCentrado(getApplicationContext(),"Contraseña incorrecta");
             contra.setText("");
         } else if(nama && pata && mata && mai && pass && celu){
                 usuario.setNombre(xnama);
@@ -136,9 +151,9 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
                 usuario.setCelular(xcelu);
                 usuario.setCorreoElectronico(xmail);
                 usuario.setContraseña(xpass);
-                poUtilidades.showToastCentrado("Todo bien");
+                poUtilidades.showToastCentrado(getApplicationContext(),"Todo bien");
                 //Agregarlo a la bd
-                AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "smartHome").build();
+                AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "smartHome").allowMainThreadQueries().build();
                 db.poUsuarioDao().insertarUsuario(usuario);
 
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);

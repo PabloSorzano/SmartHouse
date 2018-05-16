@@ -89,10 +89,10 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
         contra = poValidaciones.sinEspecial(psUsuario);
 
         if(!usr){
-            poUtilidades.showToastCentrado("Nombre de usuario incorrecto");
+            poUtilidades.showToastCentrado(getApplicationContext(),"Nombre de usuario incorrecto");
             txtUsuario.setText("");
         }else if(!contra){
-            poUtilidades.showToastCentrado("Contraseña incorrecta");
+            poUtilidades.showToastCentrado(getApplicationContext(),"Contraseña incorrecta");
             txtContrasenia.setText("");
         }else if(conD){
             iniciarSesion();
@@ -110,7 +110,7 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
             if (view instanceof TextView)
                 ((TextView) view).setError(message);
             else
-                poUtilidades.showToastCentrado(message);
+                poUtilidades.showToastCentrado(getApplicationContext(), message);
         }
     }
 
@@ -121,4 +121,22 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
         this.finish();
         startActivity(loIntent);
     }
+    //validación de inicio
+    //void signUpAction(View view) {
+    //  String email = editTextEmail.getText().toString();
+    //  String phone = editTextPhone.getText().toString();
+    //  String license = editTextLicence.getText().toString();
+
+    //  AgentDao agentDao = MyApp.DatabaseSetup.getDatabase().agentDao();
+        //1: Check if agent already exists
+    //  int agentsCount = agentDao.agentsCount(email, phone, license);
+    //  if (agentsCount > 0) {
+            //2: If it already exists then prompt user
+    //      Toast.makeText(this, "Agent already exists!", Toast.LENGTH_LONG).show();
+    //  }
+    //  else {
+    //      Toast.makeText(this, "Agent does not exist! Hurray :)", Toast.LENGTH_LONG).show();
+    //      onBackPressed();
+    //  }
+    //}
 }
