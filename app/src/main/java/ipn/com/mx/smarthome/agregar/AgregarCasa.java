@@ -100,8 +100,8 @@ public class AgregarCasa extends AppCompatActivity implements Validator.Validati
     private void agregarCasa()
     {
         Casa casa = new Casa();
-        casa.setNombre(nombre.getText().toString());
-        casa.setDescripcion(descripcion.getText().toString());
+        casa.setNombre(nombre.getText().toString().trim());
+        casa.setDescripcion(descripcion.getText().toString().trim());
 
         String tipo = String.valueOf(spinner.getSelectedItem());
         if(tipo.equals("Casa"))

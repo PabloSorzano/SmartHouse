@@ -14,7 +14,7 @@ public class ControlSeguridad extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_control_television, container, false);
+        View view = inflater.inflate(R.layout.fragment_control_vigilancia, container, false);
         return view;
     }
 

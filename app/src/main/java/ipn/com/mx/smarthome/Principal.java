@@ -15,12 +15,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import ipn.com.mx.smarthome.controles.ControlCalefaccion;
+import ipn.com.mx.smarthome.*;
 import ipn.com.mx.smarthome.controles.ControlTelevision;
 import ipn.com.mx.smarthome.controles.ControlCasa;
 import ipn.com.mx.smarthome.controles.ControlCuartos;
 import ipn.com.mx.smarthome.controles.ControlLuces;
-import ipn.com.mx.smarthome.controles.ControlSeguridad;
+import ipn.com.mx.smarthome.controles.*;
 
 public class Principal extends AppCompatActivity {
 
@@ -34,8 +34,8 @@ public class Principal extends AppCompatActivity {
     private ControlCuartos poControlCuartos;
     private ControlLuces poControlLuces;
     private ControlCalefaccion poControlCalefaccion;
-    private ControlSeguridad poControlSeguridad;
-    private ControlTelevision poControlCamaras;
+    private ControlTelevision poControlTelevision;
+    private ControlSeguridad poControlCamaras;
     private Configuracion poConfiguracion;
 
     private NavigationView poNavigationView;
@@ -59,8 +59,8 @@ public class Principal extends AppCompatActivity {
         poControlCuartos = new ControlCuartos();
         poControlLuces = new ControlLuces();
         poControlCalefaccion = new ControlCalefaccion();
-        poControlSeguridad = new ControlSeguridad();
-        poControlCamaras = new ControlTelevision();
+        poControlTelevision = new ControlTelevision();
+        poControlCamaras = new ControlSeguridad();
         poConfiguracion = new Configuracion();
 
         /*Mostrar u ocultar menu*/
@@ -117,7 +117,7 @@ public class Principal extends AppCompatActivity {
                 break;
 
             case R.id.menuSeguridad:
-                loFragment = poControlSeguridad;
+                loFragment = poControlTelevision;
                 break;
 
             case R.id.menuCamaras:

@@ -4,14 +4,14 @@
     android:layout_height="match_parent"
     tools:context="ipn.com.mx.smarthome.controles.ControlTelevision"
     android:gravity="center"
-    android:background="@color/colorBlue">
+    android:background="@color/colorWhite">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/txtCamaras"
+        android:text="@string/txtVigilancia"
         android:textSize="35dp"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/colorLink"
         android:gravity="center"/>
 
 </FrameLayout>

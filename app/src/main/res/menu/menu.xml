@@ -4,8 +4,8 @@
     <item android:id="@+id/menuCasas"           android:title="@string/txtCasas"      	    android:icon="@drawable/ic_casa"/>
     <item android:id="@+id/menuLuces"          	android:title="@string/txtLuces"       		android:icon="@drawable/ic_luz"/>
     <item android:id="@+id/menuCalefaccion"     android:title="@string/txtCalefaccion"     	        android:icon="@drawable/ic_calefaccion"/>
-    <item android:id="@+id/menuSeguridad"       android:title="@string/txtTelevision"      	            android:icon="@drawable/ic_seguridad"/>
-    <item android:id="@+id/menuCamaras"       	android:title="@string/txtCamaras"    		            android:icon="@drawable/ic_camaras"/>
+    <item android:id="@+id/menuSeguridad"       android:title="@string/txtPuertas"      	            android:icon="@drawable/ic_seguridad"/>
+    <item android:id="@+id/menuCamaras"       	android:title="@string/txtVigilancia"    		            android:icon="@drawable/ic_camaras"/>
     <item android:id="@+id/menuConfiguracion"  	android:title="@string/txtConfiguracion"  	            android:icon="@drawable/ic_configuracion"/>
     <item android:id="@+id/menuSalir"        	android:title="@string/txtSalir"          	            android:icon="@drawable/ic_logout"/>
 </menu>

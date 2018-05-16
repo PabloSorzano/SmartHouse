@@ -103,8 +103,8 @@ public class AgregarCuarto extends AppCompatActivity implements Validator.Valida
     private void agregarCuarto()
     {
         Cuarto cuarto = new Cuarto();
-        cuarto.setNombre(nombre.getText().toString());
-        cuarto.setDescripcion(descripcion.getText().toString());
+        cuarto.setNombre(nombre.getText().toString().trim());
+        cuarto.setDescripcion(descripcion.getText().toString().trim());
         cuarto.setIdCasa(idCasa);
 
         String tipo = String.valueOf(spinner.getSelectedItem());

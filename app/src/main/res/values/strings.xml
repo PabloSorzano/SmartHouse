@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">SMARTHOUSE</string>
+    <string name="app_name">SmartHouse</string>
     <!--Login activity-->
     <string name="txtTitulo1"> Smart House</string>
-    <string name="txtTitulo2">C.E.C.y T. 9 -- I.P.N. </string>
+    <string name="txtTitulo2">C.E.C.y T. 9 — I.P.N. </string>
     <string name="hintUsuario"> Usuario (*) </string>
     <string name="hintContrasenia"> Contraseña (*) </string>
     <string name="btnIniciar"> Iniciar </string>
@@ -15,10 +15,10 @@
     <!-- MENU -->
     <string name="txtBienvenido">Bienvenido</string>
     <string name="txtCasas">Casas</string>
-    <string name="txtLuces">Control de Luces</string>
+    <string name="txtLuces">Luces</string>
     <string name="txtCalefaccion">Calefacción</string>
-    <string name="txtTelevision">Control de Televisión</string>
-    <string name="txtCamaras">Cámaras</string>
+    <string name="txtPuertas">Puertas</string>
+    <string name="txtVigilancia">Vigilancia</string>
     <string name="txtConfiguracion">Configuración</string>
     <string name="txtSalir">Salir</string>
 
@@ -32,7 +32,6 @@
     <string name="msgNombre"> Ingrese el nombre </string>
     <string name="msgDescripcion"> Ingrese la descripción </string>
 
-
     <!--Spinner Casa-->
     <string name="casa_prompt">Selecciona un tipo...</string>
     <string-array name="tipos_casa">
@@ -40,6 +39,15 @@
         <item>Casa grande</item>
         <item>Departamento</item>
     </string-array>
+
+    <!-- Agregar Usuario-->
+    <string name="txtAdd4">Agregar</string>
+    <string name="msgNombre3"> Ingrese su nombre </string>
+    <string name="msgApellidoP"> Ingrese su apellido paterno  </string>
+    <string name="msgApellidoM"> Ingrese su apellido materno </string>
+    <string name="msgCelular"> Ingrese su celular </string>
+    <string name="msgCorreoE"> Ingrese su correo eléctronico </string>
+    <string name="msgContraseña"> Ingrese su contraseña </string>
 
     <!-- Agregar cuarto -->
     <string name="txtAdd1">Agregar</string>

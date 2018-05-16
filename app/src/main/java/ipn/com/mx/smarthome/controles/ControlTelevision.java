@@ -14,7 +14,7 @@ public class ControlTelevision extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_control_television, container, false);
+        View view = inflater.inflate(R.layout.fragment_control_puertas, container, false);
         return view;
     }
 

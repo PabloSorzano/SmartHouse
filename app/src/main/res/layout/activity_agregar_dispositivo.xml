@@ -8,12 +8,7 @@
     android:orientation="vertical"
     android:weightSum="7">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="Nombre"
-        android:textSize="20dp"
-        android:layout_weight="1"/>
+
 
     <EditText
         android:id="@+id/txtNombreDispositivo"
@@ -24,12 +19,7 @@
         android:textSize="20dp"
         android:layout_weight="1"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:text="Descripción"
-        android:textSize="20dp"
-        android:layout_weight="1"/>
+
 
     <EditText
         android:id="@+id/txtDescDispositivo"
@@ -46,6 +36,7 @@
         android:layout_height="0dp"
         android:text="Tipo de Dispositivo"
         android:textSize="20dp"
+        android:paddingVertical="20dp"
         android:layout_weight="1"/>
 
 
@@ -63,8 +54,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txtAdd2"
-        android:layout_gravity="center"
-        android:background="@color/colorBlue"
-        android:textColor="@color/colorWhite"/>
+        android:layout_gravity="center"/>
 
 </LinearLayout>

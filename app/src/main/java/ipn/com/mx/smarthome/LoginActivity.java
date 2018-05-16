@@ -8,6 +8,7 @@ import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.mobsandgeeks.saripaar.ValidationError;
@@ -16,15 +17,15 @@ import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 
 import java.util.List;
 
-import ipn.com.mx.smarthome.common.Utilidades;
+import ipn.com.mx.smarthome.common.*;
 
 public class LoginActivity extends AppCompatActivity implements Validator.ValidationListener{
-
+    boolean usr, contra, conD=true;
     @NotEmpty(messageResId =  R.string.msgUsuario )
-    TextView txtUsuario;
+    EditText txtUsuario;
 
     @NotEmpty(messageResId =  R.string.msgContrasenia )
-    TextView txtContrasenia;
+    EditText txtContrasenia;
 
     private Validator poValidator;
     private Button btnIniciar;
@@ -35,6 +36,7 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
     private String psUsuario;
     private String psContrasenia;
     private Utilidades poUtilidades;
+    private validacionesJT poValidaciones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +45,8 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
 
         btnIniciar = (Button) findViewById(R.id.btnIniciar);
 
-        txtUsuario = (TextView)  findViewById(R.id.txtUsuarioLogin);
-        txtContrasenia = (TextView)  findViewById(R.id.txtContraseniaLogin);
+        txtUsuario = (EditText)  findViewById(R.id.txtUsuarioLogin);
+        txtContrasenia = (EditText)  findViewById(R.id.txtContraseniaLogin);
         chkShowContrasenia = (CheckBox) findViewById(R.id.chkShowContrasenia);
 
 
@@ -52,6 +54,8 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
         poValidator.setValidationListener(this);
 
         poUtilidades = new Utilidades(this);
+
+        poValidaciones =  new validacionesJT();
 
         //1. Iniciar sesión
         btnIniciar.setOnClickListener(new View.OnClickListener() {
@@ -78,9 +82,23 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
     //Se llama si los datos requeridos se ingresaron correctamente
     public void onValidationSucceeded() {
 
-        psUsuario =  txtUsuario.getText().toString();
-        psContrasenia = txtContrasenia.getText().toString();
-        iniciarSesion();
+        psUsuario =  txtUsuario.getText().toString().trim();
+        psContrasenia = txtContrasenia.getText().toString().trim();
+
+        usr = poValidaciones.sinEspecial(psUsuario);
+        contra = poValidaciones.sinEspecial(psUsuario);
+
+        if(!usr){
+            poUtilidades.showToastCentrado("Nombre de usuario incorrecto");
+            txtUsuario.setText("");
+        }else if(!contra){
+            poUtilidades.showToastCentrado("Contraseña incorrecta");
+            txtContrasenia.setText("");
+        }else if(conD){
+            iniciarSesion();
+        }
+
+
     }
 
     //Se llama si algun dato requerido se ingresó incorrectamente
