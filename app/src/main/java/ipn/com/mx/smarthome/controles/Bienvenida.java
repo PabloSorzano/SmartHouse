@@ -1,4 +1,4 @@
-package ipn.com.mx.smarthome;
+package ipn.com.mx.smarthome.controles;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+
+import ipn.com.mx.smarthome.R;
 
 public class Bienvenida extends Fragment {
 

@@ -54,7 +54,7 @@
         android:fontFamily="helvetica"
         android:hint="@string/hintUsuario"
         android:inputType="text"
-        android:paddingStart="10dp"
+        android:paddingStart="1dp"
         android:text=""
         android:textSize="16dp" />
 
@@ -101,7 +101,7 @@
             android:id="@+id/btnIniciar"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
-            android:layout_height="35dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/txtShow"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="1dp"

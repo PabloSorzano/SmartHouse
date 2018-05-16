@@ -15,7 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import ipn.com.mx.smarthome.*;
 import ipn.com.mx.smarthome.controles.ControlTelevision;
 import ipn.com.mx.smarthome.controles.ControlCasa;
 import ipn.com.mx.smarthome.controles.ControlCuartos;

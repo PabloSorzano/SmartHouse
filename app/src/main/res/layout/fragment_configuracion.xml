@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ipn.com.mx.smarthome.Configuracion"
+    tools:context="ipn.com.mx.smarthome.controles.Configuracion"
     android:gravity="center"
     android:background="@color/colorWhite">
 

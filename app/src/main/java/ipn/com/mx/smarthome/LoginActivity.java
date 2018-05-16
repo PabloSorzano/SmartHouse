@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
         txtUsuario = (EditText)  findViewById(R.id.txtUsuarioLogin);
         txtContrasenia = (EditText)  findViewById(R.id.txtContraseniaLogin);
         chkShowContrasenia = (CheckBox) findViewById(R.id.chkShowContrasenia);
-
+        txtUsuario.setText("Usuario");
 
         poValidator = new Validator(this);
         poValidator.setValidationListener(this);

@@ -1,6 +1,7 @@
 package ipn.com.mx.smarthome.agregar;
 
 import android.arch.persistence.room.Room;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,7 +19,7 @@ import ipn.com.mx.smarthome.common.*;
 import ipn.com.mx.smarthome.domain.*;
 
 public class AgregarUsuario extends AppCompatActivity implements Validator.ValidationListener {
-    boolean nama, pata, mata, celu, mai, pass, conD=true;
+    boolean nama, pata, mata, celu, mai, pass;
     String xnama, xpata, xmata, xcelu, xmail, xpass;
 
     @NotEmpty(messageResId =  R.string.msgNombre3 )
@@ -76,7 +77,7 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
 
     @Override
     public void onValidationSucceeded() {
-        agregarCasaAsync();
+        agregarUsuario();
     }
 
     @Override
@@ -91,21 +92,7 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
         }
     }
 
-    private void agregarCasaAsync()
-    {
-        new AsyncTask<Void, Void, Integer>() {
-            @Override
-            protected Integer doInBackground(Void... params) {
-                agregarUsuario();
-                return 1;
-            }
 
-            @Override
-            protected void onPostExecute(Integer agentsCount) {
-                finish();
-            }
-        }.execute();
-    }
 
     private void agregarUsuario()
     {
@@ -127,43 +114,42 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
         if (nama == false) {
             poUtilidades.showToastCentrado("Nombre incorrecto");
             nombre.setText("");
-            conD = false;
         } else if (pata == false) {
             poUtilidades.showToastCentrado("Apellido Paterno incorrecto");
             apellidoP.setText("");
-            conD = false;
         } else if (mata == false) {
             poUtilidades.showToastCentrado("Apellido Materno incorrecto");
             apellidoM.setText("");
-            conD = false;
         } else if (xcelu.length() != 10 || celu == false) {
             poUtilidades.showToastCentrado("Celular incorrecto");
             cel.setText("");
-            conD = false;
         } else if (mai == false) {
             poUtilidades.showToastCentrado("Correo incorrecto");
             corr.setText("");
-            conD = false;
         } else if (pass == false) {
             poUtilidades.showToastCentrado("Contraseña incorrecta");
             contra.setText("");
-            conD = false;
-        } else if(conD){
+        } else if(nama && pata && mata && mai && pass && celu){
+                usuario.setNombre(xnama);
+                usuario.setApellidoPaterno(xpata);
+                usuario.setApellidoMaterno(xmata);
+                usuario.setCelular(xcelu);
+                usuario.setCorreoElectronico(xmail);
+                usuario.setContraseña(xpass);
+                poUtilidades.showToastCentrado("Todo bien");
+                //Agregarlo a la bd
+                AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "smartHome").build();
+                db.poUsuarioDao().insertarUsuario(usuario);
 
-            usuario.setNombre(xnama);
-            usuario.setApellidoPaterno(xpata);
-            usuario.setApellidoMaterno(xmata);
-            usuario.setCelular(xcelu);
-            usuario.setCorreoElectronico(xmail);
-            usuario.setContraseña(xpass);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                intent.putExtra("nombre", xnama);
+                finish();
+                startActivity(intent);
+            }else{
 
-            //Agregarlo a la bd
-            AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "smartHome").build();
-            db.poUsuarioDao().insertarUsuario(usuario);
+            }
         }
-
-
-    }
-
-
 }
+
+
+

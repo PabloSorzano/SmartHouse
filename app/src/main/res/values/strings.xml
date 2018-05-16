@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">SmartHouse</string>
+    <!-- Inicio -->
+    <string name="agregaU">Agregar Usuario</string>
+    <string name="tengoU">¿No tienes cuenta? Haz click aquí!</string>
+
     <!--Login activity-->
     <string name="txtTitulo1"> Smart House</string>
     <string name="txtTitulo2">C.E.C.y T. 9 — I.P.N. </string>
@@ -29,8 +33,8 @@
 
     <!-- Agregar casa -->
     <string name="txtAdd">Agregar</string>
-    <string name="msgNombre"> Ingrese el nombre </string>
-    <string name="msgDescripcion"> Ingrese la descripción </string>
+    <string name="msgNombre">Ingrese un nombre para la casa </string>
+    <string name="msgDescripcion"> Ingrese una descripción </string>
 
     <!--Spinner Casa-->
     <string name="casa_prompt">Selecciona un tipo...</string>
@@ -52,8 +56,8 @@
     <!-- Agregar cuarto -->
     <string name="txtAdd1">Agregar</string>
     <string name="txtAdd2">Agregar</string>
-    <string name="msgNombre1"> Ingrese el nombre </string>
-    <string name="msgDescripcion1"> Ingrese la descripción </string>
+    <string name="msgNombre1"> Ingrese un nombre para el cuarto </string>
+    <string name="msgDescripcion1"> Ingrese una descripción </string>
 
 
     <!--Spinner Casa-->
@@ -77,8 +81,8 @@
     <!-- Agregar Dispositivo -->
 
     <string name="txtAdd3">Agregar</string>
-    <string name="msgNombre2"> Ingrese el nombre </string>
-    <string name="msgDescripcion2"> Ingrese la descripción </string>
+    <string name="msgNombre2"> Ingrese un nombre para el dispositivo </string>
+    <string name="msgDescripcion2"> Ingrese una descripción </string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
