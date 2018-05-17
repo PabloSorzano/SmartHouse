@@ -1,24 +1,26 @@
 package ipn.com.mx.smarthome.agregar;
 
-import android.annotation.SuppressLint;
-import android.arch.persistence.room.Room;
-import android.content.Context;
-import android.content.Intent;
-import android.os.AsyncTask;
+import android.arch.persistence.room.*;
+import android.content.*;
+import android.os.*;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.*;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.*;
 
 import com.mobsandgeeks.saripaar.*;
+import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 
 import java.util.List;
 
-import ipn.com.mx.smarthome.*;
+import ipn.com.mx.smarthome.R;
 import ipn.com.mx.smarthome.bd.*;
 import ipn.com.mx.smarthome.common.*;
 import ipn.com.mx.smarthome.domain.*;
+import ipn.com.mx.smarthome.*;
 
 public class AgregarUsuario extends AppCompatActivity implements Validator.ValidationListener {
     boolean nama, pata, mata, celu, mai, pass, conD =true;
@@ -83,7 +85,7 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
 
     @Override
     public void onValidationSucceeded() {
-        agregarUsuarioAsync();
+        evaluarUsuario();agregarUsuarioAsync();
     }
 
     @Override
@@ -103,7 +105,9 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
         new AsyncTask<Void, Void, Integer>() {
             @Override
             protected Integer doInBackground(Void... params) {
-                agregarUsuario();
+                if(evaluarUsuario()){
+                    agregarUsuario();
+                }else{}
                 return 1;
             }
 
@@ -114,7 +118,33 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
         }.execute();
     }
 
-    private void agregarUsuario() {
+    private void agregarUsuario(){
+        usuario.setNombre(xnama);
+        usuario.setApellidoPaterno(xpata);
+        usuario.setApellidoMaterno(xmata);
+        usuario.setCelular(xcelu);
+        usuario.setCorreoElectronico(xmail);
+        usuario.setContraseña(xpass);
+
+
+        //Agregarlo a la bd
+        AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, "smartHome").build();
+        db.poUsuarioDao().insertarUsuario(usuario);
+        poUtilidades.showToastCentrado("Todo bien");
+
+        terminar();
+    }
+
+    private void terminar(){
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        intent.putExtra("nombre", xnama);
+        intent.putExtra("contra", xpass);
+        finish();
+        startActivity(intent);
+
+    }
+
+    private boolean evaluarUsuario() {
 
         xnama = nombre.getText().toString().trim();
         xpata = apellidoP.getText().toString().trim();
@@ -154,27 +184,11 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
             poUtilidades.showToastCentrado("Contraseña incorrecta");
             contra.setText("");
             conD = false;
-        } else if(conD){
-            usuario.setNombre(xnama);
-            usuario.setApellidoPaterno(xpata);
-            usuario.setApellidoMaterno(xmata);
-            usuario.setCelular(xcelu);
-            usuario.setCorreoElectronico(xmail);
-            usuario.setContraseña(xpass);
+        } else{
 
-
-            //Agregarlo a la bd
-            AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, "smartHome").build();
-            db.poUsuarioDao().insertarUsuario(usuario);
-            poUtilidades.showToastCentrado("Todo bien");
-
-            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-            intent.putExtra("nombre", xnama);
-            intent.putExtra("contra", xpass);
-            finish();
-            startActivity(intent);
 
         }
+        return conD;
     }
 }
 
