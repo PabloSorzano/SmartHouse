@@ -11,7 +11,7 @@
     <EditText
         android:id="@+id/txtNombre"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="1dp"
         android:inputType="textPersonName"
         android:hint="@string/msgNombre3"
         android:textSize="20sp"
@@ -19,7 +19,7 @@
     <EditText
         android:id="@+id/txtApellidoP"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="1dp"
         android:inputType="textPersonName"
         android:hint="@string/msgApellidoP"
         android:textSize="20sp"
@@ -27,7 +27,7 @@
     <EditText
         android:id="@+id/txtApellidoM"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="1dp"
         android:inputType="textPersonName"
         android:hint="@string/msgApellidoM"
         android:textSize="20sp"
@@ -35,7 +35,7 @@
     <EditText
         android:id="@+id/txtCelular"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="1dp"
         android:inputType="number"
         android:hint="@string/msgCelular"
         android:textSize="20sp"
@@ -43,7 +43,7 @@
     <EditText
         android:id="@+id/txtCorreo"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="1dp"
         android:inputType="textEmailAddress"
         android:hint="@string/msgCorreoE"
         android:textSize="20sp"
@@ -51,7 +51,7 @@
     <EditText
         android:id="@+id/txtContraseña"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="1dp"
         android:inputType="textPassword"
         android:hint="@string/msgContraseña"
         android:textSize="20sp"

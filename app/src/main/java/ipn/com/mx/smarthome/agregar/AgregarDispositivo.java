@@ -81,7 +81,7 @@ public class AgregarDispositivo extends AppCompatActivity implements Validator.V
             if (view instanceof TextView)
                 ((TextView) view).setError(message);
             else
-                poUtilidades.showToastCentrado(getApplicationContext(),message);
+                poUtilidades.showToastCentrado(message);
         }
     }
 

@@ -1,6 +1,8 @@
 package ipn.com.mx.smarthome.agregar;
 
+import android.annotation.SuppressLint;
 import android.arch.persistence.room.Room;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +21,7 @@ import ipn.com.mx.smarthome.common.*;
 import ipn.com.mx.smarthome.domain.*;
 
 public class AgregarUsuario extends AppCompatActivity implements Validator.ValidationListener {
-    boolean nama, pata, mata, celu, mai, pass;
+    boolean nama, pata, mata, celu, mai, pass, conD =true;
     String xnama, xpata, xmata, xcelu, xmail, xpass;
 
     @NotEmpty(messageResId =  R.string.msgNombre3 )
@@ -46,6 +48,7 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
     private Utilidades poUtilidades;
     private validacionesJT poValidaciones;
     private Usuario usuario;
+    private Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +62,8 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
 
         poValidaciones = new validacionesJT();
         usuario = new Usuario();
+        context = getApplicationContext();
+
         nombre = (EditText)findViewById(R.id.txtNombre);
         apellidoP = (EditText)findViewById(R.id.txtApellidoP);
         apellidoM = (EditText)findViewById(R.id.txtApellidoM);
@@ -78,7 +83,7 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
 
     @Override
     public void onValidationSucceeded() {
-        agregarUsuarioZync();
+        agregarUsuarioAsync();
     }
 
     @Override
@@ -89,11 +94,11 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
             if (view instanceof TextView)
                 ((TextView) view).setError(message);
             else
-                poUtilidades.showToastCentrado(getApplicationContext(), message);
+                poUtilidades.showToastCentrado(message);
         }
     }
 
-    private void agregarUsuarioZync()
+    private void agregarUsuarioAsync()
     {
         new AsyncTask<Void, Void, Integer>() {
             @Override
@@ -109,8 +114,7 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
         }.execute();
     }
 
-    private void agregarUsuario()
-    {
+    private void agregarUsuario() {
 
         xnama = nombre.getText().toString().trim();
         xpata = apellidoP.getText().toString().trim();
@@ -123,47 +127,55 @@ public class AgregarUsuario extends AppCompatActivity implements Validator.Valid
         pata = poValidaciones.soloLetras(xpata);
         mata = poValidaciones.soloLetras(xmata);
         celu = poValidaciones.soloNumeros(xcelu);
-        mai = poValidaciones.isValidEmail(xmail);
+        mai = poValidaciones.soloMail(xmail);
         pass = poValidaciones.sinEspecial(xpass);
 
         if (nama == false) {
-            poUtilidades.showToastCentrado(getApplicationContext(),"Nombre incorrecto");
+            poUtilidades.showToastCentrado("Nombre incorrecto");
             nombre.setText("");
+            conD = false;
         } else if (pata == false) {
-            poUtilidades.showToastCentrado(getApplicationContext(),"Apellido Paterno incorrecto");
+            poUtilidades.showToastCentrado("Apellido Paterno incorrecto");
             apellidoP.setText("");
+            conD = false;
         } else if (mata == false) {
-            poUtilidades.showToastCentrado(getApplicationContext(),"Apellido Materno incorrecto");
+            poUtilidades.showToastCentrado("Apellido Materno incorrecto");
             apellidoM.setText("");
+            conD = false;
         } else if (xcelu.length() != 10 || celu == false) {
-            poUtilidades.showToastCentrado(getApplicationContext(),"Celular incorrecto");
+            poUtilidades.showToastCentrado("Celular incorrecto");
             cel.setText("");
+            conD = false;
         } else if (mai == false) {
-            poUtilidades.showToastCentrado(getApplicationContext(),"Correo incorrecto");
+            poUtilidades.showToastCentrado("Correo incorrecto");
             corr.setText("");
+            conD = false;
         } else if (pass == false) {
-            poUtilidades.showToastCentrado(getApplicationContext(),"Contraseña incorrecta");
+            poUtilidades.showToastCentrado("Contraseña incorrecta");
             contra.setText("");
-        } else if(nama && pata && mata && mai && pass && celu){
-                usuario.setNombre(xnama);
-                usuario.setApellidoPaterno(xpata);
-                usuario.setApellidoMaterno(xmata);
-                usuario.setCelular(xcelu);
-                usuario.setCorreoElectronico(xmail);
-                usuario.setContraseña(xpass);
-                poUtilidades.showToastCentrado(getApplicationContext(),"Todo bien");
-                //Agregarlo a la bd
-                AppDatabase db = Room.databaseBuilder(this, AppDatabase.class, "smartHome").allowMainThreadQueries().build();
-                db.poUsuarioDao().insertarUsuario(usuario);
+            conD = false;
+        } else if(conD){
+            usuario.setNombre(xnama);
+            usuario.setApellidoPaterno(xpata);
+            usuario.setApellidoMaterno(xmata);
+            usuario.setCelular(xcelu);
+            usuario.setCorreoElectronico(xmail);
+            usuario.setContraseña(xpass);
 
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                intent.putExtra("nombre", xnama);
-                finish();
-                startActivity(intent);
-            }else{
 
-            }
+            //Agregarlo a la bd
+            AppDatabase db = Room.databaseBuilder(context, AppDatabase.class, "smartHome").build();
+            db.poUsuarioDao().insertarUsuario(usuario);
+            poUtilidades.showToastCentrado("Todo bien");
+
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            intent.putExtra("nombre", xnama);
+            intent.putExtra("contra", xpass);
+            finish();
+            startActivity(intent);
+
         }
+    }
 }
 
 

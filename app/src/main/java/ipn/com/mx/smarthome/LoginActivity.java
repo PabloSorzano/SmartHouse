@@ -17,6 +17,7 @@ import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 
 import java.util.List;
 
+import ipn.com.mx.smarthome.agregar.AgregarUsuario;
 import ipn.com.mx.smarthome.common.*;
 
 public class LoginActivity extends AppCompatActivity implements Validator.ValidationListener{
@@ -89,10 +90,10 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
         contra = poValidaciones.sinEspecial(psUsuario);
 
         if(!usr){
-            poUtilidades.showToastCentrado(getApplicationContext(),"Nombre de usuario incorrecto");
+            poUtilidades.showToastCentrado("Nombre de usuario incorrecto");
             txtUsuario.setText("");
         }else if(!contra){
-            poUtilidades.showToastCentrado(getApplicationContext(),"Contraseña incorrecta");
+            poUtilidades.showToastCentrado("Contraseña incorrecta");
             txtContrasenia.setText("");
         }else if(conD){
             iniciarSesion();
@@ -110,13 +111,13 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
             if (view instanceof TextView)
                 ((TextView) view).setError(message);
             else
-                poUtilidades.showToastCentrado(getApplicationContext(), message);
+                poUtilidades.showToastCentrado(message);
         }
     }
 
     private void iniciarSesion()
     {
-        Intent loIntent = new Intent(this, Principal.class);
+        Intent loIntent = new Intent(this, AgregarUsuario.class);
         loIntent.putExtra("usuario", psUsuario);
         this.finish();
         startActivity(loIntent);

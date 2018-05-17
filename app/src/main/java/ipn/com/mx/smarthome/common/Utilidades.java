@@ -32,10 +32,9 @@ public class Utilidades {
     }
 
     //Para mostrar un toast en medio de la pantalla
-    public void showToastCentrado(Context context,String msj)
+    public void showToastCentrado(String msj)
     {
         Toast a = Toast.makeText(context, msj , Toast.LENGTH_SHORT);
-        a.setGravity(Gravity.CENTER | Gravity.CENTER, 0, 0);
         a.show();
     }
 

@@ -77,7 +77,7 @@ public class AgregarCasa extends AppCompatActivity implements Validator.Validati
             if (view instanceof TextView)
                 ((TextView) view).setError(message);
             else
-                poUtilidades.showToastCentrado(getApplicationContext(), message);
+                poUtilidades.showToastCentrado(message);
         }
     }
 
