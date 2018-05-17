@@ -1,8 +1,12 @@
 <resources>
     <string name="app_name">SmartHouse</string>
+    <!-- Start-->
+    <string name="installer">Instalador</string>
+    <string name="user">Usuario</string>
+
     <!-- Inicio -->
-    <string name="agregaU">Agregar Usuario</string>
-    <string name="tengoU">¿No tienes cuenta? Haz click aquí!</string>
+    <string name="agregaU">Agregar usuario</string>
+    <string name="iniciarU">Iniciar sesión</string>
 
     <!--Login activity-->
     <string name="txtTitulo1"> Smart House</string>

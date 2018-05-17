@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context=".Inicio"
+    android:orientation="horizontal"
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="8dp"
+    android:weightSum="2"
+    >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    android:weightSum="4"
+    >
+    <TextView
+        android:id="@+id/agregar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:textSize="15pt"
+        android:text=""
+        />
+
+    <ImageButton
+        android:id="@+id/installer"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:scaleType="centerInside"
+        android:background="inherit"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/instalador" />
+
+    <TextView
+        android:id="@+id/agregarU"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:textSize="25dp"
+        android:text="@string/installer"
+        />
+
+    <TextView
+        android:id="@+id/agregar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:textSize="15pt"
+        android:text=""
+        />
+
+</LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:weightSum="4"
+        >
+        <TextView
+            android:id="@+id/agregar3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:textSize="15pt"
+            android:text=""
+            />
+
+        <ImageButton
+            android:id="@+id/user"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:scaleType="centerInside"
+            android:background="inherit"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/usuario" />
+
+        <TextView
+            android:id="@+id/agregar4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="@string/user"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/agregar5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:textSize="15pt"
+            android:text=""
+            />
+
+    </LinearLayout>
+</LinearLayout>
