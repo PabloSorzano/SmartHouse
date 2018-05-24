@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="150dp"
         android:scaleType="centerInside"
-        android:background="inherit"
+        android:background="@color/colorWhite"
         android:layout_weight="1"
         android:layout_gravity="center"
         app:srcCompat="@drawable/instalador" />
@@ -83,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:scaleType="centerInside"
-            android:background="inherit"
+            android:background="@color/colorWhite"
             android:layout_weight="1"
             android:layout_gravity="center"
             app:srcCompat="@drawable/usuario" />

@@ -117,7 +117,7 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
 
     private void iniciarSesion()
     {
-        Intent loIntent = new Intent(this, AgregarUsuario.class);
+        Intent loIntent = new Intent(this, Principal.class);
         loIntent.putExtra("usuario", psUsuario);
         this.finish();
         startActivity(loIntent);

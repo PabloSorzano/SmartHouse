@@ -13,7 +13,7 @@ import ipn.com.mx.smarthome.domain.Cuarto;
 import ipn.com.mx.smarthome.domain.*;
 
 
-@Database(entities = {Casa.class,Cuarto.class, Dispositivo.class, Usuario.class}, version = 1)
+@Database(entities = {Casa.class,Cuarto.class, Dispositivo.class, Usuario.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract CasaDao poCasaDao();
     public abstract CuartoDao poCuartoDao();
